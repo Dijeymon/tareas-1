@@ -9,7 +9,7 @@ var VistaTareas = function(modelo, controlador) {
 VistaTareas.prototype = {
   inicializar: function() {
     console.log('iniciada tareas');
-    this.listar();
+    this.cargarTareas();
   },
   cargarTareas: function() {
     var ul = document.querySelector('.lista-tareas');

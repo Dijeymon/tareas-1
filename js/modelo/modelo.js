@@ -20,4 +20,18 @@ var Modelo = function() {
     }
   ];
   console.log(this.tareas);
+  this.tareaAgregada = new Evento(this);
+}
+
+Modelo.prototype = {
+  agregarTarea: function(texto, radio) {
+    var nuevaTarea = {
+      textoTarea: texto,
+      id: 4,
+      prioridad: radio,
+      habilitado: 'habilitado'
+    };
+    this.tareas.push(nuevaTarea);
+    this.tareaAgregada.notificar();
+  }
 }
