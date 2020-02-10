@@ -1,7 +1,10 @@
 var VistaNuevasTareas = function(modelo, controlador) {
   this.modelo = modelo;
   this.controlador = controlador;
-  this.modelo.tareaAgregada.suscribir();
+  var contexto = this;
+  this.modelo.tareaAgregada.suscribir(function() {
+    contexto.cargarTarea();
+  });
 };
 
 VistaNuevasTareas.prototype = {
@@ -19,7 +22,6 @@ VistaNuevasTareas.prototype = {
       console.log(inputText);
       var radio = document.querySelector('input[name="prioridad"]:checked').value;
       console.log(radio);
-      debugger;
       contexto.controlador.agregarTarea(inputText, radio);
     })
   }

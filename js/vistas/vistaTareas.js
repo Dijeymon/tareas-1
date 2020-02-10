@@ -2,8 +2,12 @@ var VistaTareas = function(modelo, controlador) {
   this.modelo = modelo;
   this.controlador = controlador;
   this.tareas = this.modelo.tareas;
+  var contexto = this;
   console.log('desde vista', this.tareas);
   console.log(this.modelo);
+  this.modelo.tareaAgregada.suscribir(function() {
+    contexto.cargarTareas();
+  });
 }
 
 VistaTareas.prototype = {
