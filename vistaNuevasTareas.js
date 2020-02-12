@@ -1,24 +1,5 @@
 // Tareas existentes
-tareas = [
-    {
-        textoTarea: 'Mi primer tarea',
-        id: 1,
-        prioridad: 'baja',
-        habilitado: 'deshabilitado'
-    },
-    {
-        textoTarea: 'Mi segunnda tarea',
-        id: 2,
-        prioridad: 'media',
-        habilitado: 'deshabilitado'
-    },
-    {
-        textoTarea: 'Mi tercer tarea',
-        id: 3,
-        prioridad: 'alta',
-        habilitado: 'deshabilitado'
-    }
-];
+tareas = JSON.parse(localStorage.getItem('tareas')) || [];
 
 // Cargar las tareas que estan en la variable "tareas"
 var ul = document.querySelector('.lista-tareas');
@@ -76,6 +57,18 @@ form.addEventListener('submit', function (event) {
     var inputText = document.getElementById('descripcion').value;
     var radio = document.querySelector('input[name="prioridad"]:checked').value;
     agregarTarea(inputText, radio);
+})
+
+// Funcion para agregar tareas
+function agregarTarea(texto, radio) {
+    var nuevaTarea = {
+        textoTarea: texto,
+        id: tareas.length + 1,
+        prioridad: radio,
+        habilitado: 'habilitado'
+    };
+    tareas.push(nuevaTarea);
+    localStorage.setItem('tareas', JSON.stringify(tareas));
 
     // Acttualizamos el listado de tareas
     var ul = document.querySelector('.lista-tareas');
@@ -118,21 +111,12 @@ form.addEventListener('submit', function (event) {
         }
         contador.textContent = counter;
     });
-})
-
-// Funcion para agregar tareas
-function agregarTarea(texto, radio) {
-    var nuevaTarea = {
-        textoTarea: texto,
-        id: tareas.length + 1,
-        prioridad: radio,
-        habilitado: 'habilitado'
-    };
-    tareas.push(nuevaTarea);
 };
 
 function removerTarea(index) {
     tareas = tareas.filter((tarea, i) => i !== index)
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+
     // Acttualizamos el listado de tareas
     var ul = document.querySelector('.lista-tareas');
     ul.innerHTML = '';
