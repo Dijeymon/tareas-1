@@ -3,8 +3,6 @@ var VistaTareas = function(modelo, controlador) {
   this.controlador = controlador;
   this.tareas = this.modelo.tareas;
   var contexto = this;
-  console.log('desde vista', this.tareas);
-  console.log(this.modelo);
   this.modelo.tareaAgregada.suscribir(function() {
     contexto.cargarTareas();
   });
@@ -12,16 +10,15 @@ var VistaTareas = function(modelo, controlador) {
 
 VistaTareas.prototype = {
   inicializar: function() {
-    console.log('iniciada tareas');
     this.cargarTareas();
   },
   cargarTareas: function() {
     var ul = document.querySelector('.lista-tareas');
+    ul.innerHTML = '';
     this.tareas.forEach(tarea => {
       var li = document.createElement('li');
       li.textContent = tarea.textoTarea;
       ul.append(li);
-      console.log(ul);
     });
   },
 };

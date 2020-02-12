@@ -9,7 +9,6 @@ var VistaNuevasTareas = function(modelo, controlador) {
 
 VistaNuevasTareas.prototype = {
   inicializar: function() {
-    console.log('iniciada nuevas tareas');
     this.cargarTarea();
   },
   cargarTarea: function() {
@@ -17,11 +16,8 @@ VistaNuevasTareas.prototype = {
     var contexto = this;
     form.addEventListener('submit', function() {
       event.preventDefault();
-      console.log(event);
       var inputText = document.getElementById('descripcion').value;
-      console.log(inputText);
       var radio = document.querySelector('input[name="prioridad"]:checked').value;
-      console.log(radio);
       contexto.controlador.agregarTarea(inputText, radio);
     })
   }
