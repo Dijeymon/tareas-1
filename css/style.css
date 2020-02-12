@@ -156,7 +156,7 @@ form .button-container {
   outline: none;
   background: transparent;
 }
-.disabled input {
+.disabled {
   text-decoration: line-through;
 }
 

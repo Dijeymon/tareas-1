@@ -11,6 +11,7 @@ Evento.prototype = {
   notificar: function() {
     for (var i = 0; i < this.observadores.length; i++) {
       this.observadores[i](this.sujeto);
+      console.log(this.observadores[i]);
     }
   }
 };
