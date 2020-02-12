@@ -85,6 +85,16 @@ form {
   padding-left: 30px;
 }
 
+.tarea-quitar {
+  margin-left: 13px;
+  color: white;
+  background-color: #673ab7;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px;
+}
+
 .container-contador {
   display: flex;
   justify-content: space-around;

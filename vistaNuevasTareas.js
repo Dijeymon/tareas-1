@@ -23,9 +23,16 @@ tareas = [
 // Cargar las tareas que estan en la variable "tareas"
 var ul = document.querySelector('.lista-tareas');
 ul.innerHTML = '';
-tareas.forEach(tarea => {
+tareas.forEach((tarea, i) => {
     var li = document.createElement('li');
+    var remover = document.createElement('button');
     li.textContent = tarea.textoTarea;
+    remover.textContent = "Quitar";
+    remover.className = "tarea-quitar"
+    remover.addEventListener('click', function () {
+        removerTarea(i)
+    })
+    li.append(remover);
     ul.append(li);
 });
 
@@ -41,17 +48,17 @@ contadores.forEach(contador => {
     var counter = 0;
     switch (contador.id) {
         case 'contador_baja':
-            tareas.forEach(function(tarea) {
+            tareas.forEach(function (tarea) {
                 if (tarea.prioridad === 'baja') counter++
             })
             break;
         case 'contador_media':
-            tareas.forEach(function(tarea) {
+            tareas.forEach(function (tarea) {
                 if (tarea.prioridad === 'media') counter++
             })
             break;
         case 'contador_alta':
-            tareas.forEach(function(tarea) {
+            tareas.forEach(function (tarea) {
                 if (tarea.prioridad === 'alta') counter++
             })
             break;
@@ -69,13 +76,20 @@ form.addEventListener('submit', function (event) {
     var inputText = document.getElementById('descripcion').value;
     var radio = document.querySelector('input[name="prioridad"]:checked').value;
     agregarTarea(inputText, radio);
-    
+
     // Acttualizamos el listado de tareas
     var ul = document.querySelector('.lista-tareas');
     ul.innerHTML = '';
-    tareas.forEach(tarea => {
+    tareas.forEach((tarea, i) => {
         var li = document.createElement('li');
+        var remover = document.createElement('button');
         li.textContent = tarea.textoTarea;
+        remover.textContent = "Quitar";
+        remover.className = "tarea-quitar"
+        remover.addEventListener('click', function () {
+            removerTarea(i)
+        })
+        li.append(remover);
         ul.append(li);
     });
 
@@ -84,17 +98,17 @@ form.addEventListener('submit', function (event) {
         var counter = 0;
         switch (contador.id) {
             case 'contador_baja':
-                tareas.forEach(function(tarea) {
+                tareas.forEach(function (tarea) {
                     if (tarea.prioridad === 'baja') counter++
                 })
                 break;
             case 'contador_media':
-                tareas.forEach(function(tarea) {
+                tareas.forEach(function (tarea) {
                     if (tarea.prioridad === 'media') counter++
                 })
                 break;
             case 'contador_alta':
-                tareas.forEach(function(tarea) {
+                tareas.forEach(function (tarea) {
                     if (tarea.prioridad === 'alta') counter++
                 })
                 break;
@@ -115,4 +129,49 @@ function agregarTarea(texto, radio) {
         habilitado: 'habilitado'
     };
     tareas.push(nuevaTarea);
+};
+
+function removerTarea(index) {
+    tareas = tareas.filter((tarea, i) => i !== index)
+    // Acttualizamos el listado de tareas
+    var ul = document.querySelector('.lista-tareas');
+    ul.innerHTML = '';
+    tareas.forEach((tarea, i) => {
+        var li = document.createElement('li');
+        var remover = document.createElement('button');
+        li.textContent = tarea.textoTarea;
+        remover.textContent = "Quitar";
+        remover.className = "tarea-quitar"
+        remover.addEventListener('click', function () {
+            removerTarea(i)
+        })
+        li.append(remover);
+        ul.append(li);
+    });
+
+    // Actualizamos los contadores
+    contadores.forEach(contador => {
+        var counter = 0;
+        switch (contador.id) {
+            case 'contador_baja':
+                tareas.forEach(function (tarea) {
+                    if (tarea.prioridad === 'baja') counter++
+                })
+                break;
+            case 'contador_media':
+                tareas.forEach(function (tarea) {
+                    if (tarea.prioridad === 'media') counter++
+                })
+                break;
+            case 'contador_alta':
+                tareas.forEach(function (tarea) {
+                    if (tarea.prioridad === 'alta') counter++
+                })
+                break;
+            default:
+                console.log('La prioridad ' + tarea.prioridad + ' no esta contemplada.');
+                break;
+        }
+        contador.textContent = counter;
+    });
 };
