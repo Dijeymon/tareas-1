@@ -1,5 +1,31 @@
 // Tareas existentes
-tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+tareas = [
+    {
+        textoTarea: 'Mi primer tarea',
+        id: 1,
+        prioridad: 'baja',
+        habilitado: 'deshabilitado'
+    },
+    {
+        textoTarea: 'Mi segunnda tarea',
+        id: 2,
+        prioridad: 'media',
+        habilitado: 'deshabilitado'
+    },
+    {
+        textoTarea: 'Mi tercer tarea',
+        id: 3,
+        prioridad: 'alta',
+        habilitado: 'deshabilitado'
+    }
+];
+
+// Contadores de tareas
+var contadores = [
+    document.getElementById('contador_baja'),
+    document.getElementById('contador_media'),
+    document.getElementById('contador_alta')
+];
 
 // Cargar las tareas que estan en la variable "tareas"
 var ul = document.querySelector('.lista-tareas');
@@ -16,13 +42,6 @@ tareas.forEach((tarea, i) => {
     li.append(remover);
     ul.append(li);
 });
-
-// Contadores de tareas
-var contadores = [
-    document.getElementById('contador_baja'),
-    document.getElementById('contador_media'),
-    document.getElementById('contador_alta')
-];
 
 // Actualizar contadores
 contadores.forEach(contador => {
@@ -68,7 +87,6 @@ function agregarTarea(texto, radio) {
         habilitado: 'habilitado'
     };
     tareas.push(nuevaTarea);
-    localStorage.setItem('tareas', JSON.stringify(tareas));
 
     // Acttualizamos el listado de tareas
     var ul = document.querySelector('.lista-tareas');
@@ -115,8 +133,7 @@ function agregarTarea(texto, radio) {
 
 function removerTarea(index) {
     tareas = tareas.filter((tarea, i) => i !== index)
-    localStorage.setItem('tareas', JSON.stringify(tareas));
-
+    
     // Acttualizamos el listado de tareas
     var ul = document.querySelector('.lista-tareas');
     ul.innerHTML = '';
