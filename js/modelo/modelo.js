@@ -19,7 +19,6 @@ var Modelo = function() {
       habilitado: 'habilitado'
     }
   ];
-  console.log(this.tareas);
   this.tareaAgregada = new Evento(this);
   this.cambioEstado = new Evento(this);
 }

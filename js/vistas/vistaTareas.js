@@ -3,8 +3,6 @@ var VistaTareas = function(modelo, controlador) {
   this.controlador = controlador;
   this.tareas = this.modelo.tareas;
   var contexto = this;
-  console.log('desde vista', this.tareas);
-  console.log(this.modelo);
   this.modelo.tareaAgregada.suscribir(function() {
     contexto.cargarTareas();
   });
@@ -15,7 +13,6 @@ var VistaTareas = function(modelo, controlador) {
 
 VistaTareas.prototype = {
   inicializar: function() {
-    console.log('iniciada tareas');
     this.cargarTareas();
     this.cambiarEstadoTarea();
   },

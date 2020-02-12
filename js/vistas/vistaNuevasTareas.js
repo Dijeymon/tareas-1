@@ -9,22 +9,16 @@ var VistaNuevasTareas = function(modelo, controlador) {
 
 VistaNuevasTareas.prototype = {
   inicializar: function() {
-    console.log('iniciada nuevas tareas');
     this.cargarTarea();
   },
   cargarTarea: function() {
     var form = document.getElementById('formulario-agregar');
     var contexto = this;
-    if (form) {
-      form.addEventListener('submit', function() {
-        event.preventDefault();
-        console.log(event);
-        var inputText = document.getElementById('descripcion').value;
-        console.log(inputText);
-        var radio = document.querySelector('input[name="prioridad"]:checked').value;
-        console.log(radio);
-        contexto.controlador.agregarTarea(inputText, radio);
-      });
-    }
+    form.addEventListener('submit', function() {
+      event.preventDefault();
+      var inputText = document.getElementById('descripcion').value;
+      var radio = document.querySelector('input[name="prioridad"]:checked').value;
+      contexto.controlador.agregarTarea(inputText, radio);
+    })
   }
 }
