@@ -25,7 +25,6 @@ VistaTareas.prototype = {
         li.textContent = tarea.textoTarea;
         li.id = tarea.id;
         ul.append(li);
-        console.log(ul);
       }
     });
   },
