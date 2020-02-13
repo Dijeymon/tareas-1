@@ -41,6 +41,14 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="vistaNuevasTareas.js"></script>
+  <script type="text/javascript" src="modelo/index.js"></script>
+  <script type="text/javascript" src="controlador/index.js"></script>
+  <script type="text/javascript" src="vista/index.js"></script>
+  <script>
+    var modelo = new Modelo();
+    var controlador = new Controlador(modelo);
+    var vista = new Vista(controlador);
+    vista.inicializar();
+  </script>
 </body>
 </html>
