@@ -3,7 +3,7 @@ var VistaNuevasTareas = function(modelo, controlador) {
   this.controlador = controlador;
   var contexto = this;
   this.modelo.tareaAgregada.suscribir(function() {
-    contexto.cargarTareas();
+    contexto.cargarTarea();
   });
 };
 
