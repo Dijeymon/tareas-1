@@ -27,5 +27,8 @@ Para aplicar MVC tenemos que analizar la funcionalidad actual de nuestras dos pa
 ## Object storage
 Vamos a usar objectStorage para persistir los datos con los que estamos trabajando (tareas).
 Para lograr esto, tenemos que identificar en que parte de nuestro código deberíamos traer y guardar la información.
+Recuerda que objectStorage solo almacena texto por lo que tenemos que transformar nuestra 
+informacion con `JSON.stringify` y `JSON.parse` para convertir los datos.
 
 ## Observer
+Analizaremos entre todos como podemos implementar el patron de diseño Observer y lo implementaremos.
