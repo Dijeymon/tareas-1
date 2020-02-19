@@ -1,6 +1,5 @@
 # Patrones de diseño (MVC y Observer).
 En este proyecto vamos a aplicar lo aprendido sobre patrones de diseño y object storage.
-
 ## MVC
 Para aplicar MVC tenemos que analizar la funcionalidad actual de nuestras dos paginas y separar la logica en sus respectivas secciones:
 - Modelo: tenemos que crear un objeto que contenga toda la informacion que precisa el modelo:
@@ -19,9 +18,7 @@ Para aplicar MVC tenemos que analizar la funcionalidad actual de nuestras dos pa
     - Agregar tarea: cuando el usuario ingresa los datos y presiona el boton "Cargar nueva tarea" deberiamos tomar esa informacion y enviarsela al controlaadore.
     - Eliminar tarea: cuando el usuario presiona el boton "Quitar" en alguna tarea, deberiamos identificar esa tareas y removerla de el listado.
 - Conotrolador: tenemos que crear un objeto con todas las acciones necesarias para :
-
 ## Object Storage
 Vamos a usar object storage para persistir los datos con los que estamos trabajando (tareas).
 Para loograr esto, tenemos que usa 
-
 ## Observer
