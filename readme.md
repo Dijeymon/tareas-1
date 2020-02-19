@@ -11,16 +11,17 @@ Para aplicar MVC tenemos que analizar la funcionalidad actual de nuestras dos pa
         prioridad: 'baja,media o alta',
         habilitado: 'deshabilitado o deshabilitado'
     }```
-    - Metodo para Agregar un tarea nueva (addNewTask):
+    - Metodo para Agregar una tarea nueva (addNewTask):
     - Metodo para Eliminar una tarea existente (removeTask):
-- Vista: tenemos que crear un objeto con todas las acciones que el usuario pueda hacer desde la vista:
+- Vista: tenemos que crear un objeto con todas las acciones que deben ejecutarse para que el usuario pueda visualizar las tareas, conhacer desde la vista:
     - Renderizar listado: tomar la informacion de el controlador para mostrar las tareas en un listado.
     - Renderizar Contadores: tomar la informacion de el controlador para mostrar los contadores con el numero de tareas agrupadas por prioridad.
-    - Agregar tarea: tomar la informacion de el formulario y enviarla al controlador.
-    - Eliminar tarea: 
+    - Agregar tarea: cuando el usuario ingresa los datos y presiona el boton "Cargar nueva tarea" deberiamos tomar esa informacion y enviarsela al controlaadore.
+    - Eliminar tarea: cuando el usuario presiona el boton "Quitar" en alguna tarea, deberiamos identificar esa tareas y removerla de el listado.
 - Conotrolador: tenemos que crear un objeto con todas las acciones necesarias para :
 
 ## Object Storage
-Vamos a usar object storage para persistir los datos con los que estamos trabajando
+Vamos a usar object storage para persistir los datos con los que estamos trabajando (tareas).
+Para loograr esto, tenemos que usa 
 
 ## Observer
