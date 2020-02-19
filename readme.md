@@ -1,24 +1,26 @@
-# Patrones de diseño.
+# Patrones de diseño (MVC y Observer).
+En este proyecto vamos a aplicar lo aprendido sobre patrones de diseño y object storage.
 
-## Descripción del proyecto
+## MVC
+Para aplicar MVC tenemos que analizar la funcionalidad actual de nuestras dos paginas y separar la logica en sus respectivas secciones:
+- Modelo: tenemos que crear un objeto que contenga toda la informacion que precisa el modelo:
+    - Propiedad donde almacenar las tareas (tasks): Esta propiedad deberia ser un array donde podamos alcenar nuestras tareas. Las tareas deben tener la siguiente estructura: ```
+    {
+        textoTarea: 'texto_tarea',
+        id: 0,
+        prioridad: 'baja,media o alta',
+        habilitado: 'deshabilitado o deshabilitado'
+    }```
+    - Metodo para Agregar un tarea nueva (addNewTask):
+    - Metodo para Eliminar una tarea existente (removeTask):
+- Vista: tenemos que crear un objeto con todas las acciones que el usuario pueda hacer desde la vista:
+    - Renderizar listado: tomar la informacion de el controlador para mostrar las tareas en un listado.
+    - Renderizar Contadores: tomar la informacion de el controlador para mostrar los contadores con el numero de tareas agrupadas por prioridad.
+    - Agregar tarea: tomar la informacion de el formulario y enviarla al controlador.
+    - Eliminar tarea: 
+- Conotrolador: tenemos que crear un objeto con todas las acciones necesarias para :
 
-Vamos a realizar una aplicación para el seguimiento de nuestras tareas. Nuestra aplicación deberá poder:
-- Agregar nuevas tareas.
-- Establecer la prioridad de la tarea.
-- Marcar como realizadas una tarea.
-- Eliminar una tarea.
-- Editar el texto de una tarea.
+## Object Storage
+Vamos a usar object storage para persistir los datos con los que estamos trabajando
 
-Tendremos 3 vistas:
-1. Index: que nos llevará a las dos vistas principales:
-2. Agregar tareas: tendrá un formulario para agregar la tarea, deberemos poder indicar el texto de la tarea, y la prioridad. Cuando agregemos una tarea se deberá mostrar en la lista de tareas de manera dinámica.
-3. Vista tareas, tendremos la lista de todas nuestras tareas, que podremos eliminar, editar, o marcar como realizadas.
-
-Para lograr nuestros objetivos deberemos hacer uso de dos patrones de diseño de Javascript:
-- Patrón *MVC*
-- Patrón *Observador*
-
-Recursos:
-
-1. Descargaremos los archivos html con la estructura mínima y el css. 
-2. Debemos realizar todo nuestro código en javascript.
+## Observer
