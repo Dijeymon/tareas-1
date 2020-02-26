@@ -20,12 +20,6 @@ tareas = [
     }
 ];
 
-// Contadores de tareas
-var contadores = [
-    document.getElementById('contador_baja'),
-    document.getElementById('contador_media'),
-    document.getElementById('contador_alta')
-];
 
 // Cargar las tareas que estan en la variable "tareas"
 var ul = document.querySelector('.lista-tareas');
@@ -42,6 +36,13 @@ tareas.forEach((tarea, i) => {
     li.append(remover);
     ul.append(li);
 });
+
+// Contadores de tareas
+var contadores = [
+    document.getElementById('contador_baja'),
+    document.getElementById('contador_media'),
+    document.getElementById('contador_alta')
+];
 
 // Actualizar contadores
 contadores.forEach(contador => {
